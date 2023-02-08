@@ -3,14 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_push_swap.h                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mthea <mthea@student.42.fr>                +#+  +:+       +#+        */
+/*   By: haze <haze@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/06 12:27:40 by mthea             #+#    #+#             */
-/*   Updated: 2023/02/06 12:28:53 by mthea            ###   ########.fr       */
+/*   Updated: 2023/02/08 10:48:28 by haze             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_PUSH_SWAP_H
-#define FT_PUSH_SWAP_H
-int main(int argc, char **argv);
+# define FT_PUSH_SWAP_H
+# include <stdlib.h>
+# include "../ft_printf/ft_printf.h"
+
 #endif

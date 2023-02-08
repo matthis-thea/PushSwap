@@ -2,11 +2,15 @@
 #--------------------------------------------
 # VARIABLES FOR DOT C
 
-TEST = ft_test.c
+TEST = ft_verification_conversion/ft_test.c ft_verification_conversion/ft_split.c
+
+FT_PRINTF	= ft_printf/ft_printf.c ft_printf/ft_void_percent.c ft_printf/ft_string_letters.c \
+				ft_printf/ft_numbers_base_ten.c ft_printf/ft_numbers_base_sixteen.c ft_printf/ft_external_functions.c \
 
 #--------------------------------------------
 # VARIABLES FOR DOT O
-TEST_OBJ = $(TEST_OBJ:.c=.o)
+TEST_OBJ = $(TEST:.c=.o)
+FT_PRINTF_OBJ = $(FT_PRINTF:.c=.o)
 #--------------------------------------------
 # VARIABLES FOR DO A COMPILATION
 CC = gcc 
@@ -23,11 +27,11 @@ RM = rm -rf
 all : $(NAME)
 
 
-$(NAME) : $(TEST_OBJ)
-	$(CC) $(CFLAGS) $(TEST_OBJ) -o $(NAME)
+$(NAME) : $(TEST_OBJ) $(FT_PRINTF_OBJ)
+	$(CC) $(CFLAGS) $(TEST_OBJ) $(FT_PRINTF_OBJ) -o $(NAME)
 
 clean :
-	$(RM) $(TEST_OBJ)
+	$(RM) $(TEST_OBJ) $(FT_PRINTF_OBJ)
 
 fclean :	clean
 	$(RM) $(NAME)
