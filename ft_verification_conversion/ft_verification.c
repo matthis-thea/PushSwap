@@ -6,15 +6,15 @@
 /*   By: haze <haze@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/08 09:25:02 by haze              #+#    #+#             */
-/*   Updated: 2023/02/22 13:02:39 by haze             ###   ########.fr       */
+/*   Updated: 2023/02/23 14:31:25 by haze             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../ft_includes/ft_push_swap.h"
 
-int verif_if_is_number(char **tab)
+int	verif_if_is_number(char **tab)
 {
-	int i;
+	int	i;
 	int	j;
 
 	i = 1;
@@ -23,9 +23,11 @@ int verif_if_is_number(char **tab)
 	{
 		while (tab[i][j])
 		{
-			if (tab[i][j] == 45 && (tab[i][j + 1] > 47 && tab[i][j + 1] < 58) && j == 0)
+			if (tab[i][j] == 45 && (tab[i][j + 1] > 47
+			&& tab[i][j + 1] < 58) && j == 0)
 				j++;
-			if (tab[i][j] == 43 && (tab[i][j + 1] > 47 && tab[i][j + 1] < 58) && j == 0)
+			if (tab[i][j] == 43 && (tab[i][j + 1] > 47
+			&& tab[i][j + 1] < 58) && j == 0)
 				j++;
 			if (tab[i][j] < 48 || tab[i][j] > 57)
 				return (0);
@@ -33,12 +35,12 @@ int verif_if_is_number(char **tab)
 				j++;
 		}
 		j = 0;
-		i++;	
+		i++;
 	}
 	return (1);
 }
 
-int	ft_atoi(char *thestring)
+long long int	ft_atoi(char *thestring)
 {
 	long long int	i;
 	long long int	valeur;
@@ -67,11 +69,11 @@ int	ft_atoi(char *thestring)
 	return (valeur);
 }
 
-int verif_if_is_int(char **tab)
+int	verif_if_is_int(char **tab)
 {
-	int i;
-	int	j;
-	long long valeur;
+	int				i;
+	int				j;
+	long long int	valeur;
 
 	valeur = 0;
 	i = 1;
@@ -83,21 +85,48 @@ int verif_if_is_int(char **tab)
 			valeur = ft_atoi(tab[i]);
 			j++;
 		}
-		ft_printf("%lld  \n", valeur);
-		if (valeur > 2147483647 || valeur < -2147483647 - 1)
+		if (valeur > 2147483647 || valeur < -2147483648)
 			return (0);
 		valeur = 0;
 		j = 0;
-		i++;	
+		i++;
 	}
 	return (1);
 }
 
-int main(int argc, char **argv)
+int	verif_if_is_doublon(char **tab, int taille)
 {
-	(void) argc;
-	ft_printf("%d", verif_if_is_int(argv));
+	int	i;
+	int	j;
 
-	return (0);
+	i = 1;
+	j = 2;
+	while (i < taille)
+	{
+		while (j < taille)
+		{
+			if ((ft_atoi(tab[i]) == ft_atoi(tab[j])))
+				return (0);
+			j++;
+		}
+		i++;
+		j = i + 1;
+	}
+	return (1);
 }
 
+int	verif_if_is_totale(char **tab, int taille)
+{
+	int	verification;
+
+	verification = 0;
+	verification += verif_if_is_number(tab);
+	verification += verif_if_is_int(tab);
+	verification += verif_if_is_doublon(tab, taille);
+	if (verification < 3)
+	{
+		ft_printf("Error\n");
+		return (0);
+	}
+	return (1);
+}
