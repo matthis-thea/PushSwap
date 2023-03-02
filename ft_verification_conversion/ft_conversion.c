@@ -6,7 +6,7 @@
 /*   By: haze <haze@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/08 10:43:48 by haze              #+#    #+#             */
-/*   Updated: 2023/03/02 22:12:04 by haze             ###   ########.fr       */
+/*   Updated: 2023/03/02 23:04:33 by haze             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,7 +112,28 @@ void pa(t_swap *s, int max)
 	verif = realloc_stack_pa(s, max);
 	if (verif == 0)
 		return ;
+	realloc_stack_b(s);
 	ft_printf("pa\n");
+}
+void init()
+{
+	int last_num;
+	int	max_bits;
+	int	i;
+	int	j;
+	int pos;
+	int verif;
+
+	verif = 0;
+	i = 0;
+	j = 0;
+	last_num = s->max - 1;
+	max_bits = 0;
+	while ((last_num >> max_bits) != 0)
+	{
+		max_bits++;
+	}
+	last_num = s->max;
 }
 void test(t_swap *s)
 {
@@ -152,7 +173,6 @@ void test(t_swap *s)
 		}
 		pa(s, last_num);
 		last_num = s->max;
-		realloc_stack_b(s);
 		j = 0;
 		i++;
 	}
@@ -177,8 +197,14 @@ int main(int argc, char **argv)
 	}
 	sort_tab_temp(s);
 	convert_stack_a(s);
-	test(s);
 	int i = 0;
+	while (i < argc - 1)
+	{
+		ft_printf("Valeur de stack a : %d\n", s->stack_a[i]);
+		i++;
+	}
+	test(s);
+	i = 0;
 	while (i < argc - 1)
 	{
 		ft_printf("Valeur de stack a : %d\n", s->stack_a[i]);

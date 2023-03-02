@@ -3,6 +3,7 @@
 # VARIABLES FOR DOT C
 
 TEST = ft_verification_conversion/ft_verification.c ft_verification_conversion/ft_conversion.c ft_verification_conversion/ft_alloc.c\
+	ft_verification_conversion/ft_alloc2.c\
 
 FT_PRINTF	= ft_printf/ft_printf.c ft_printf/ft_void_percent.c ft_printf/ft_string_letters.c \
 				ft_printf/ft_numbers_base_ten.c ft_printf/ft_numbers_base_sixteen.c ft_printf/ft_external_functions.c \

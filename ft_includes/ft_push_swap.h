@@ -6,7 +6,7 @@
 /*   By: haze <haze@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/06 12:27:40 by mthea             #+#    #+#             */
-/*   Updated: 2023/03/02 18:49:57 by haze             ###   ########.fr       */
+/*   Updated: 2023/03/02 22:50:20 by haze             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,13 @@ typedef struct s_swap
 		int		*stack_a;
 		int 	*stack_temp;
 		int		*stack_b;
+		int		temp;
+		int last_num;
+		int	max_bits;
+		int	i;
+		int	j;
+		int pos;
+		int verif;
 }				t_swap;
 
 int				verif_if_is_number(char **tab);
@@ -31,6 +38,7 @@ int			allocation_all_tab(t_swap *s);
 t_swap			*allocation_tab(t_swap *s, int taille, char **argv);
 void			sort_tab_temp(t_swap *s);
 void		convert_stack_a(t_swap *s);
+void	realloc_stack_pa_bis(t_swap *s, int *j, int *i, int *max);
 int realloc_stack_pb(t_swap *s, int	max);
 int realloc_stack_pa(t_swap *s, int max);
 int realloc_stack_b(t_swap *s);
