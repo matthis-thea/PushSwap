@@ -6,7 +6,7 @@
 /*   By: haze <haze@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/02 22:31:38 by haze              #+#    #+#             */
-/*   Updated: 2023/03/02 22:33:21 by haze             ###   ########.fr       */
+/*   Updated: 2023/03/03 11:28:01 by haze             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,15 @@ int	allocation_all_tab(t_swap *s)
 {
 	s->stack_a = malloc(sizeof(long long int) * s->max);
 	if (!s->stack_a)
+	{
+		free(s);
 		return (0);
+	}
 	s->stack_temp = malloc(sizeof(long long int) * s->max);
 	if (!s->stack_temp)
 	{
 		free(s->stack_a);
+		free(s);
 		return (0);
 	}
 	s->stack_b = malloc(sizeof(long long int) * s->max);
@@ -28,6 +32,7 @@ int	allocation_all_tab(t_swap *s)
 	{
 		free(s->stack_a);
 		free(s->stack_temp);
+		free(s);
 		return (0);
 	}
 	return (1);
@@ -46,6 +51,8 @@ t_swap	*allocation_tab(t_swap *s, int taille, char **argv)
 	if (!s)
 		return (0);
 	s->max = taille;
+	s->i = 0;
+	s->j = 0;
 	verif = allocation_all_tab(s);
 	if (verif == 0)
 		return (0);
