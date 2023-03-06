@@ -6,7 +6,7 @@
 /*   By: haze <haze@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/08 10:43:48 by haze              #+#    #+#             */
-/*   Updated: 2023/03/03 12:34:21 by haze             ###   ########.fr       */
+/*   Updated: 2023/03/06 19:39:41 by haze             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,7 +87,7 @@ void	sorted_bis(int max_bits, int pos, t_swap *s)
 	int	last_num;
 
 	last_num = s->max;
-	while (s->i < max_bits)
+	while (s->i <= max_bits)
 	{
 		while (s->j < s->max)
 		{
@@ -125,36 +125,56 @@ void	big_sorted(t_swap *s)
 	sorted_bis(max_bits, pos, s);
 }
 
-// int main(int argc, char **argv)
-// {
-// 	(void) argc;
-// 	t_swap *s;
-// 	int verif;
+int argc_equal_2(t_swap *s, char **argv)
+{
+	int taille;
+	int	verif;
 
-// 	s = NULL;
-// 	if (argc > 1)
-// 	{
-// 		verif = verif_if_is_totale(argv, argc);
-// 		if (verif == 0)
-// 			return (0);
-// 		s = allocation_tab(s, argc - 1, argv);
-// 		if (!s)
-// 		{
-// 			ft_printf("Erreur\n");
-// 			return (0);
-// 		}
-// 		verif = sort_tab_a(s);
-// 		if (verif == 1)
-// 		{
-// 			free_all(s);
-// 			return (0);
-// 		}
-// 		sort_tab_temp(s);
-// 		convert_stack_a(s);
-// 		big_sorted(s);
-// 		free_all(s);
-// 	}
-// 	else
-// 		return (0);
-// 	return (0);
-// }
+	verif = 0;
+	taille = strlen_if_two(argv);
+	s = allocation_tab_bis(s, taille, argv);
+	verif = sort_tab_a(s);
+	if (verif == 1)
+	{
+		free_all(s);
+		return (0);
+	}
+	sort_tab_temp(s);
+	convert_stack_a(s);
+	final_sorted(s, taille);
+	free_all(s);
+	return (0);
+}
+int argc_more_2(t_swap *s, char **argv, int argc)
+{
+	int verif;
+
+	verif = 0;
+	s = allocation_tab(s, argc - 1, argv);
+	verif = sort_tab_a(s);
+	if (verif == 1)
+	{
+		free_all(s);
+		return (0);
+	}
+	sort_tab_temp(s);
+	convert_stack_a(s);
+	final_sorted(s, argc - 1);
+	free_all(s);
+	return (0);
+}
+int main(int argc, char **argv)
+{
+	t_swap *s;
+	int verif;
+	s = NULL;
+	
+	verif = verif_if_is_totale(argv, argc);
+	if (verif == 0)
+		return (0);
+	if (argc == 2)
+		argc_equal_2(s, argv);
+	else
+		argc_more_2(s, argv, argc);
+	return (0);
+}

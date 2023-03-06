@@ -1,23 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_verification.c                                  :+:      :+:    :+:   */
+/*   ft_verification_bis.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: haze <haze@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/08 09:25:02 by haze              #+#    #+#             */
-/*   Updated: 2023/03/06 17:27:09 by haze             ###   ########.fr       */
+/*   Updated: 2023/03/06 17:26:45 by haze             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../ft_includes/ft_push_swap.h"
 
-int	verif_if_is_number(char **tab)
+int	verif_if_is_number_bis(char **tab)
 {
 	int	i;
 	int	j;
 
-	i = 1;
+	i = 0;
 	j = 0;
 	while (tab[i])
 	{
@@ -40,43 +40,14 @@ int	verif_if_is_number(char **tab)
 	return (1);
 }
 
-long long int	ft_atoi(char *thestring)
-{
-	long long int	i;
-	long long int	valeur;
-	int				moins;
-
-	i = 0;
-	valeur = 0;
-	moins = 0;
-	while ((thestring[i] >= 9 && thestring[i] <= 13) || thestring[i] == 32)
-		i++;
-	if (thestring[i] == 43 || thestring[i] == 45)
-	{
-		if (thestring[i] == 45)
-			moins++;
-		i++;
-	}
-	while (thestring[i] && (thestring[i] >= 48 && thestring[i] <= 57))
-	{
-		valeur = ((valeur * 10) + (thestring[i] - 48));
-		i++;
-	}
-	if (moins)
-		valeur = -valeur;
-	if (!(thestring[i] >= 48 && thestring[i] <= 57) && valeur == 0)
-		return (0);
-	return (valeur);
-}
-
-int	verif_if_is_int(char **tab)
+int	verif_if_is_int_bis(char **tab)
 {
 	int				i;
 	int				j;
 	long long int	valeur;
 
 	valeur = 0;
-	i = 1;
+	i = 0;
 	j = 0;
 	while (tab[i])
 	{
@@ -94,13 +65,13 @@ int	verif_if_is_int(char **tab)
 	return (1);
 }
 
-int	verif_if_is_doublon(char **tab, int taille)
+int	verif_if_is_doublon_bis(char **tab, int taille)
 {
 	int	i;
 	int	j;
 
-	i = 1;
-	j = 2;
+	i = 0;
+	j = 1;
 	while (i < taille)
 	{
 		while (j < taille)
@@ -115,23 +86,19 @@ int	verif_if_is_doublon(char **tab, int taille)
 	return (1);
 }
 
-int	verif_if_is_totale(char **tab, int taille)
+int	verif_if_is_totale_bis(char **tab)
 {
 	int	verification;
+	int	i;
 
+	i = 0;
 	verification = 0;
-	if (taille == 2)
-		verification = verif_if_is_totale_bis(tab);
-	else
-	{
-		verification += verif_if_is_number(tab);
-		verification += verif_if_is_int(tab);
-		verification += verif_if_is_doublon(tab, taille);
-	}
-	if (verification < 3)
-	{
-		ft_printf("Error\n");
-		return (0);
-	}
-	return (1);
+	tab = ft_split(tab[1], ' ');
+	while (tab[i])
+		i++;
+	verification += verif_if_is_number_bis(tab);
+	verification += verif_if_is_int_bis(tab);
+	verification += verif_if_is_doublon_bis(tab, i);
+	ft_free_malloc(tab, i);
+	return (verification);
 }

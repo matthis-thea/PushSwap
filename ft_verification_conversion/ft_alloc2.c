@@ -6,7 +6,7 @@
 /*   By: haze <haze@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/02 22:31:38 by haze              #+#    #+#             */
-/*   Updated: 2023/03/03 11:28:01 by haze             ###   ########.fr       */
+/*   Updated: 2023/03/06 18:16:19 by haze             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,3 +66,19 @@ t_swap	*allocation_tab(t_swap *s, int taille, char **argv)
 	}
 	return (s);
 }
+
+t_swap	*allocation_tab_bis(t_swap *s, int taille, char **argv)
+{
+	int	verif;
+
+	verif = 0;
+	s = malloc(sizeof(t_swap));
+	if (!s)
+		return (0);
+	s->max = taille;
+	s->i = 0;
+	s->j = 0;
+	alloc_for_two(argv, verif, s);
+	return (s);
+}
+

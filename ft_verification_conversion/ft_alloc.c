@@ -6,7 +6,7 @@
 /*   By: haze <haze@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/02 18:45:44 by haze              #+#    #+#             */
-/*   Updated: 2023/03/02 22:33:09 by haze             ###   ########.fr       */
+/*   Updated: 2023/03/06 18:53:44 by haze             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,7 @@ void	realloc_stack_pa_bis(t_swap *s, int *j, int *i, int *max)
 	while (*j < s->max)
 	{
 		s->stack_a[s->temp] = s->stack_b[*j];
+		ft_printf("pa\n");
 		s->temp--;
 		(*j)++;
 	}
