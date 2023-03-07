@@ -6,7 +6,7 @@
 /*   By: haze <haze@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/03 11:02:15 by haze              #+#    #+#             */
-/*   Updated: 2023/03/06 20:57:59 by haze             ###   ########.fr       */
+/*   Updated: 2023/03/07 01:50:49 by haze             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ void	pa(t_swap *s, int max)
 	realloc_stack_b(s);
 }
 
-void sa(t_swap *s)
+void	sa(t_swap *s)
 {
 	int	decalage;
 

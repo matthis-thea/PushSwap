@@ -6,7 +6,7 @@
 /*   By: haze <haze@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/02 22:31:38 by haze              #+#    #+#             */
-/*   Updated: 2023/03/06 18:16:19 by haze             ###   ########.fr       */
+/*   Updated: 2023/03/07 01:53:05 by haze             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,4 +81,3 @@ t_swap	*allocation_tab_bis(t_swap *s, int taille, char **argv)
 	alloc_for_two(argv, verif, s);
 	return (s);
 }
-

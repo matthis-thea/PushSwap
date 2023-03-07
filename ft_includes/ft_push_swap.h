@@ -6,7 +6,7 @@
 /*   By: haze <haze@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/06 12:27:40 by mthea             #+#    #+#             */
-/*   Updated: 2023/03/06 20:20:57 by haze             ###   ########.fr       */
+/*   Updated: 2023/03/07 03:15:27 by haze             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,8 +60,12 @@ char			**ft_alloc_totale(const char *s, char c, char **tab);
 char			**ft_placement_mots(const char *s, char c, char **tab);
 char			**ft_split(char const *s, char c);
 int				strlen_if_two(char **argv);
-void			alloc_for_two(char ** argv, int verif, t_swap *s);
+void			alloc_for_two(char **argv, int verif, t_swap *s);
 void			final_sorted(t_swap *s, int taille);
-void			lenght_3(t_swap *s, int taille);
-
+void			length_three(t_swap *s, int taille);
+void			length_five(t_swap *s, int taille);
+void			length_four(t_swap *s, int taille);
+int				length_fivebis(t_swap *s, int taille, int *doublon);
+int				pos(t_swap *s, int taille);
+int				sort_tab_a_length_five(t_swap *s);
 #endif
