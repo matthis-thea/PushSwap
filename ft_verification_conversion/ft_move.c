@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_move.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: haze <haze@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: mthea <mthea@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/03 11:02:15 by haze              #+#    #+#             */
-/*   Updated: 2023/03/07 01:50:49 by haze             ###   ########.fr       */
+/*   Updated: 2023/03/07 13:53:48 by mthea            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../ft_includes/ft_push_swap.h"
 
-void	ra(t_swap *s, int max)
+void	ft_ra(t_swap *s, int max)
 {
 	int	i;
 
@@ -33,7 +33,7 @@ void	ra(t_swap *s, int max)
 	ft_printf("ra\n");
 }
 
-void	pb(t_swap *s, int max)
+void	ft_pb(t_swap *s, int max)
 {
 	int	j;
 	int	i;
@@ -51,18 +51,18 @@ void	pb(t_swap *s, int max)
 	ft_printf("pb\n");
 }
 
-void	pa(t_swap *s, int max)
+void	ft_pa(t_swap *s, int max)
 {
 	int	verif;
 
 	verif = 0;
-	verif = realloc_stack_pa(s, max);
+	verif = ft_realloc_stack_pa(s, max);
 	if (verif == 0)
 		return ;
-	realloc_stack_b(s);
+	ft_realloc_stack_b(s);
 }
 
-void	sa(t_swap *s)
+void	ft_sa(t_swap *s)
 {
 	int	decalage;
 
@@ -73,7 +73,7 @@ void	sa(t_swap *s)
 	ft_printf("sa\n");
 }
 
-void	rra(t_swap *s, int max)
+void	ft_rra(t_swap *s, int max)
 {
 	int	i;
 

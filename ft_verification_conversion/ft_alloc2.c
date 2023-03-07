@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_alloc2.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: haze <haze@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: mthea <mthea@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/02 22:31:38 by haze              #+#    #+#             */
-/*   Updated: 2023/03/07 01:53:05 by haze             ###   ########.fr       */
+/*   Updated: 2023/03/07 13:52:24 by mthea            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../ft_includes/ft_push_swap.h"
 
-int	allocation_all_tab(t_swap *s)
+int	ft_allocation_all_tab(t_swap *s)
 {
 	s->stack_a = malloc(sizeof(long long int) * s->max);
 	if (!s->stack_a)
@@ -38,7 +38,7 @@ int	allocation_all_tab(t_swap *s)
 	return (1);
 }
 
-t_swap	*allocation_tab(t_swap *s, int taille, char **argv)
+t_swap	*ft_allocation_tab(t_swap *s, int taille, char **argv)
 {
 	int	i;
 	int	j;
@@ -53,7 +53,7 @@ t_swap	*allocation_tab(t_swap *s, int taille, char **argv)
 	s->max = taille;
 	s->i = 0;
 	s->j = 0;
-	verif = allocation_all_tab(s);
+	verif = ft_allocation_all_tab(s);
 	if (verif == 0)
 		return (0);
 	while (argv[i])
@@ -67,7 +67,7 @@ t_swap	*allocation_tab(t_swap *s, int taille, char **argv)
 	return (s);
 }
 
-t_swap	*allocation_tab_bis(t_swap *s, int taille, char **argv)
+t_swap	*ft_allocation_tab_bis(t_swap *s, int taille, char **argv)
 {
 	int	verif;
 
@@ -78,6 +78,6 @@ t_swap	*allocation_tab_bis(t_swap *s, int taille, char **argv)
 	s->max = taille;
 	s->i = 0;
 	s->j = 0;
-	alloc_for_two(argv, verif, s);
+	ft_alloc_for_two(argv, verif, s);
 	return (s);
 }

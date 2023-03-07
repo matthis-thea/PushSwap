@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_verification.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: haze <haze@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: mthea <mthea@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/08 09:25:02 by haze              #+#    #+#             */
-/*   Updated: 2023/03/06 17:27:09 by haze             ###   ########.fr       */
+/*   Updated: 2023/03/07 13:55:22 by mthea            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../ft_includes/ft_push_swap.h"
 
-int	verif_if_is_number(char **tab)
+int	ft_verif_if_is_number(char **tab)
 {
 	int	i;
 	int	j;
@@ -69,7 +69,7 @@ long long int	ft_atoi(char *thestring)
 	return (valeur);
 }
 
-int	verif_if_is_int(char **tab)
+int	ft_verif_if_is_int(char **tab)
 {
 	int				i;
 	int				j;
@@ -94,7 +94,7 @@ int	verif_if_is_int(char **tab)
 	return (1);
 }
 
-int	verif_if_is_doublon(char **tab, int taille)
+int	ft_verif_if_is_doublon(char **tab, int taille)
 {
 	int	i;
 	int	j;
@@ -115,18 +115,18 @@ int	verif_if_is_doublon(char **tab, int taille)
 	return (1);
 }
 
-int	verif_if_is_totale(char **tab, int taille)
+int	ft_verif_if_is_totale(char **tab, int taille)
 {
 	int	verification;
 
 	verification = 0;
 	if (taille == 2)
-		verification = verif_if_is_totale_bis(tab);
+		verification = ft_verif_if_is_totale_bis(tab);
 	else
 	{
-		verification += verif_if_is_number(tab);
-		verification += verif_if_is_int(tab);
-		verification += verif_if_is_doublon(tab, taille);
+		verification += ft_verif_if_is_number(tab);
+		verification += ft_verif_if_is_int(tab);
+		verification += ft_verif_if_is_doublon(tab, taille);
 	}
 	if (verification < 3)
 	{

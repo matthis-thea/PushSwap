@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_verification_bis.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: haze <haze@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: mthea <mthea@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/08 09:25:02 by haze              #+#    #+#             */
-/*   Updated: 2023/03/06 17:26:45 by haze             ###   ########.fr       */
+/*   Updated: 2023/03/07 14:03:24 by mthea            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../ft_includes/ft_push_swap.h"
 
-int	verif_if_is_number_bis(char **tab)
+int	ft_verif_if_is_number_bis(char **tab)
 {
 	int	i;
 	int	j;
@@ -40,7 +40,7 @@ int	verif_if_is_number_bis(char **tab)
 	return (1);
 }
 
-int	verif_if_is_int_bis(char **tab)
+int	ft_verif_if_is_int_bis(char **tab)
 {
 	int				i;
 	int				j;
@@ -65,7 +65,7 @@ int	verif_if_is_int_bis(char **tab)
 	return (1);
 }
 
-int	verif_if_is_doublon_bis(char **tab, int taille)
+int	ft_verif_if_is_doublon_bis(char **tab, int taille)
 {
 	int	i;
 	int	j;
@@ -86,7 +86,7 @@ int	verif_if_is_doublon_bis(char **tab, int taille)
 	return (1);
 }
 
-int	verif_if_is_totale_bis(char **tab)
+int	ft_verif_if_is_totale_bis(char **tab)
 {
 	int	verification;
 	int	i;
@@ -96,9 +96,9 @@ int	verif_if_is_totale_bis(char **tab)
 	tab = ft_split(tab[1], ' ');
 	while (tab[i])
 		i++;
-	verification += verif_if_is_number_bis(tab);
-	verification += verif_if_is_int_bis(tab);
-	verification += verif_if_is_doublon_bis(tab, i);
+	verification += ft_verif_if_is_number_bis(tab);
+	verification += ft_verif_if_is_int_bis(tab);
+	verification += ft_verif_if_is_doublon_bis(tab, i);
 	ft_free_malloc(tab, i);
 	return (verification);
 }

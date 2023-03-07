@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_alloc.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: haze <haze@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: mthea <mthea@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/02 18:45:44 by haze              #+#    #+#             */
-/*   Updated: 2023/03/06 18:53:44 by haze             ###   ########.fr       */
+/*   Updated: 2023/03/07 13:52:04 by mthea            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../ft_includes/ft_push_swap.h"
 
-int	realloc_stack_pb(t_swap *s, int max)
+int	ft_realloc_stack_pb(t_swap *s, int max)
 {
 	int	i;
 
@@ -35,7 +35,7 @@ int	realloc_stack_pb(t_swap *s, int max)
 	return (1);
 }
 
-void	realloc_stack_pa_bis(t_swap *s, int *j, int *i, int *max)
+void	ft_realloc_stack_pa_bis(t_swap *s, int *j, int *i, int *max)
 {
 	while (*i >= 0)
 	{
@@ -63,7 +63,7 @@ void	realloc_stack_pa_bis(t_swap *s, int *j, int *i, int *max)
 	}
 }
 
-int	realloc_stack_pa(t_swap *s, int max)
+int	ft_realloc_stack_pa(t_swap *s, int max)
 {
 	int	i;
 	int	j;
@@ -80,11 +80,11 @@ int	realloc_stack_pa(t_swap *s, int max)
 	if (!s->stack_a)
 		return (0);
 	i--;
-	realloc_stack_pa_bis(s, &j, &i, &max);
+	ft_realloc_stack_pa_bis(s, &j, &i, &max);
 	return (1);
 }
 
-int	realloc_stack_b(t_swap *s)
+int	ft_realloc_stack_b(t_swap *s)
 {
 	int	j;
 

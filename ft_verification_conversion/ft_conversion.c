@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_conversion.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: haze <haze@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: mthea <mthea@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/08 10:43:48 by haze              #+#    #+#             */
-/*   Updated: 2023/03/07 01:52:45 by haze             ###   ########.fr       */
+/*   Updated: 2023/03/07 16:32:56 by mthea            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../ft_includes/ft_push_swap.h"
 
-int	sort_tab_a(t_swap *s)
+int	ft_sort_tab_a(t_swap *s)
 {
 	int	i;
 	int	j;
@@ -33,7 +33,7 @@ int	sort_tab_a(t_swap *s)
 	return (1);
 }
 
-void	sort_tab_temp(t_swap *s)
+void	ft_sort_tab_temp(t_swap *s)
 {
 	int	i;
 	int	j;
@@ -59,7 +59,7 @@ void	sort_tab_temp(t_swap *s)
 	}
 }
 
-void	convert_stack_a(t_swap *s)
+void	ft_convert_stack_a(t_swap *s)
 {
 	int	i;
 	int	j;
@@ -82,7 +82,7 @@ void	convert_stack_a(t_swap *s)
 	}
 }
 
-void	sorted_bis(int max_bits, int pos, t_swap *s)
+void	ft_sorted_bis(int max_bits, int pos, t_swap *s)
 {
 	int	last_num;
 
@@ -93,23 +93,25 @@ void	sorted_bis(int max_bits, int pos, t_swap *s)
 		{
 			pos = s->stack_a[0];
 			if (((pos >> s->i) & 1) == 1)
-				ra(s, last_num);
+				ft_ra(s, last_num);
 			else
 			{
-				pb(s, last_num);
+				ft_pb(s, last_num);
 				last_num--;
-				realloc_stack_pb(s, last_num);
+				ft_realloc_stack_pb(s, last_num);
 			}
 			(s->j)++;
 		}
-		pa(s, last_num);
+		ft_pa(s, last_num);
 		last_num = s->max;
 		s->j = 0;
 		(s->i)++;
+		if (ft_sort_tab_a(s) == 1)
+			return ;
 	}
 }
 
-void	big_sorted(t_swap *s)
+void	ft_big_sorted(t_swap *s)
 {
 	int	max_bits;
 	int	pos;
@@ -122,5 +124,6 @@ void	big_sorted(t_swap *s)
 	{
 		max_bits++;
 	}
-	sorted_bis(max_bits, pos, s);
+	verif = 0;
+	ft_sorted_bis(max_bits, pos, s);
 }

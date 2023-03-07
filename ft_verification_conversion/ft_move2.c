@@ -3,82 +3,75 @@
 /*                                                        :::      ::::::::   */
 /*   ft_move2.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: haze <haze@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: mthea <mthea@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/03 11:02:15 by haze              #+#    #+#             */
-/*   Updated: 2023/03/07 03:25:24 by haze             ###   ########.fr       */
+/*   Updated: 2023/03/07 14:08:49 by mthea            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../ft_includes/ft_push_swap.h"
 
-void	length_three(t_swap *s, int taille)
+void	ft_length_three(t_swap *s, int taille)
 {
 	if (s->stack_a[0] > s->stack_a[1] && s->stack_a[0] < s->stack_a[2])
-		sa(s);
+		ft_sa(s);
 	else if (s->stack_a[0] > s->stack_a[1] && s->stack_a[1] > s->stack_a[2])
 	{
-		sa(s);
-		rra(s, taille);
+		ft_sa(s);
+		ft_rra(s, taille);
 	}
 	else if (s->stack_a[0] > s->stack_a[1] && s->stack_a[0] > s->stack_a[2])
-		ra(s, taille);
+		ft_ra(s, taille);
 	else if (s->stack_a[0] < s->stack_a[1] && s->stack_a[0] < s->stack_a[2])
 	{
-		sa(s);
-		ra(s, taille);
+		ft_sa(s);
+		ft_ra(s, taille);
 	}
 	else
-		rra(s, taille);
+		ft_rra(s, taille);
 }
 
-int	length_fivebis(t_swap *s, int taille, int *doublon)
+void	ft_length_fivebis(t_swap *s, int taille)
 {
-	if (s->stack_a[0] == 0)
+	taille = ft_sort_tab_a_length_five(s);
+	if (taille == 1)
 	{
-		pb(s, taille);
-		taille--;
-		realloc_stack_pb(s, taille);
-		*doublon = 1;
+		ft_pa(s, 3);
+		return ;
 	}
-	if (s->stack_a[0] == 1 && *doublon == 1)
-	{
-		pb(s, taille);
-		taille--;
-		realloc_stack_pb(s, taille);
-		*doublon = 2;
-	}
-	return (taille);
+	ft_length_three(s, 3);
+	ft_pa(s, 3);
 }
 
-void	length_five(t_swap *s, int taille)
+void	ft_length_five(t_swap *s, int taille)
 {
 	int	doublon;
 	int	posi;
 
-	posi = pos(s, taille);
-	doublon = 0;
-	taille = length_fivebis(s, taille, &doublon);
-	doublon = 0;
-	while (doublon != 2)
+	while (taille > 3)
 	{
-		if (posi <= 3)
-			ra(s, taille);
-		else
-			rra(s, taille);
-		taille = length_fivebis(s, taille, &doublon);
+		posi = ft_pos(s, taille);
+		ft_length_fivebis_two(s, taille, posi);
+		if (s->stack_a[0] == 0)
+		{
+			ft_pb(s, taille);
+			taille--;
+			ft_realloc_stack_pb(s, taille);
+			doublon = 1;
+		}
+		if (s->stack_a[0] == 1 && doublon == 1)
+		{
+			ft_pb(s, taille);
+			taille--;
+			ft_realloc_stack_pb(s, taille);
+			doublon = 2;
+		}
 	}
-	taille = sort_tab_a_length_five(s);
-	if (taille == 1)
-	{
-		pa(s, 3);
-		return ;
-	}
-	length_three(s, 3);
-	pa(s, 3);
+	ft_length_fivebis(s, taille);
 }
 
-void	length_four(t_swap *s, int taille)
+void	ft_length_four(t_swap *s, int taille)
 {
 	int	doublon;
 
@@ -87,27 +80,27 @@ void	length_four(t_swap *s, int taille)
 	{
 		if (s->stack_a[0] == 0)
 		{
-			pb(s, taille);
+			ft_pb(s, taille);
 			taille--;
-			realloc_stack_pb(s, taille);
+			ft_realloc_stack_pb(s, taille);
 			doublon = 1;
 		}
-		ra(s, taille);
+		ft_ra(s, taille);
 	}
-	length_three(s, taille);
-	pa(s, taille);
+	ft_length_three(s, taille);
+	ft_pa(s, taille);
 }
 
-void	final_sorted(t_swap *s, int taille)
+void	ft_final_sorted(t_swap *s, int taille)
 {
 	if (taille == 2)
-		ra(s, taille);
+		ft_ra(s, taille);
 	else if (taille == 3)
-		length_three(s, taille);
+		ft_length_three(s, taille);
 	else if (taille == 4)
-		length_four(s, taille);
+		ft_length_four(s, taille);
 	else if (taille == 5)
-		length_five(s, taille);
+		ft_length_five(s, taille);
 	else
-		big_sorted(s);
+		ft_big_sorted(s);
 }

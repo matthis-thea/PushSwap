@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: haze <haze@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: mthea <mthea@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/08 10:43:48 by haze              #+#    #+#             */
-/*   Updated: 2023/03/07 03:25:06 by haze             ###   ########.fr       */
+/*   Updated: 2023/03/07 14:05:22 by mthea            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../ft_includes/ft_push_swap.h"
 
-int	strlen_if_two(char **argv)
+int	ft_strlen_if_two(char **argv)
 {
 	char	**tab;
 	int		i;
@@ -25,7 +25,7 @@ int	strlen_if_two(char **argv)
 	return (i);
 }
 
-void	alloc_for_two(char **argv, int verif, t_swap *s)
+void	ft_alloc_for_two(char **argv, int verif, t_swap *s)
 {
 	char	**tab;
 	int		i;
@@ -34,7 +34,7 @@ void	alloc_for_two(char **argv, int verif, t_swap *s)
 	j = 0;
 	i = 0;
 	tab = ft_split(argv[1], ' ');
-	verif = allocation_all_tab(s);
+	verif = ft_allocation_all_tab(s);
 	if (verif == 0)
 		return ;
 	while (tab[i])
@@ -48,7 +48,7 @@ void	alloc_for_two(char **argv, int verif, t_swap *s)
 	ft_free_malloc(tab, i);
 }
 
-void	free_all(t_swap *s)
+void	ft_free_all(t_swap *s)
 {
 	free(s->stack_a);
 	free(s->stack_b);
@@ -56,7 +56,7 @@ void	free_all(t_swap *s)
 	free(s);
 }
 
-int	pos(t_swap *s, int taille)
+int	ft_pos(t_swap *s, int taille)
 {
 	int	i;
 	int	pos;
@@ -72,7 +72,7 @@ int	pos(t_swap *s, int taille)
 	return (pos);
 }
 
-int	sort_tab_a_length_five(t_swap *s)
+int	ft_sort_tab_a_length_five(t_swap *s)
 {
 	int	i;
 	int	j;
